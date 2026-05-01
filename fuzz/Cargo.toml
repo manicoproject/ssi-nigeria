@@ -1,0 +1,29 @@
+[package]
+name = "ssi-nigeria-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+serde_json = "1.0.149"
+
+[dependencies.ssi-nigeria]
+path = ".."
+
+[[bin]]
+name = "fuzz_target_1"
+path = "fuzz_targets/fuzz_target_1.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fuzz_registry"
+path = "fuzz_targets/fuzz_registry.rs"
+test = false
+doc = false
+bench = false
